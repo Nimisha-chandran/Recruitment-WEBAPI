@@ -27,5 +27,10 @@ namespace ServiceLayerTest.Test
 
         }
 
+        public List<QuestionCategory> GetCategory()
+        {
+            return db.QuestionCategory.ToList();
+        }
+
     }
 }

@@ -157,6 +157,7 @@
       <DependentUpon>AptitudeModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuesCategoryAdd.cs" />
     <Compile Include="QuestionCategory.cs">
       <DependentUpon>AptitudeModel.tt</DependentUpon>
     </Compile>

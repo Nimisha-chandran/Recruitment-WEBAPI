@@ -56,7 +56,6 @@
           </Key>
           <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CategoryDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="tblQuestions" Relationship="Self.FK__tblQuesti__Secti__46E78A0C" FromRole="QuestionCategory" ToRole="tblQuestions" />
         </EntityType>
         <EntityType Name="tblQuestions">
           <Key>
@@ -70,7 +69,6 @@
           <Property Name="AnsOption3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="AnsOption4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="CorrectAns" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="QuestionCategory" Relationship="Self.FK__tblQuesti__Secti__46E78A0C" FromRole="tblQuestions" ToRole="QuestionCategory" />
         </EntityType>
         <Association Name="FK__tblQuesti__Secti__46E78A0C">
           <End Role="QuestionCategory" Type="Self.QuestionCategory" Multiplicity="1" />

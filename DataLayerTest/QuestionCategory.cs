@@ -14,16 +14,7 @@ namespace DataLayerTest
     
     public partial class QuestionCategory
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public QuestionCategory()
-        {
-            this.tblQuestions = new HashSet<tblQuestions>();
-        }
-    
         public int CategoryId { get; set; }
         public string CategoryDescription { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblQuestions> tblQuestions { get; set; }
     }
 }

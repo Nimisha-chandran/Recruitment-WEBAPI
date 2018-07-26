@@ -12,6 +12,7 @@ namespace WebAPITest.Controllers
     public class AptitudeQuesController : ApiController
     {
         private IQuestionsTest Questest = new QuestionsTest();
+       
         public IEnumerable<tblQuestions> Get()
         {
             return Questest.GetQuestions();
@@ -27,5 +28,6 @@ namespace WebAPITest.Controllers
         {
             return Questest.insertQuestion(ques);
         }
+
     }
 }
