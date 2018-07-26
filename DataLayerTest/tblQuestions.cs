@@ -15,7 +15,14 @@ namespace DataLayerTest
     public partial class tblQuestions
     {
         public int QuestionID { get; set; }
-        public short SectionID { get; set; }
+        public int SectionID { get; set; }
         public string QuesDescription { get; set; }
+        public string AnsOption1 { get; set; }
+        public string AnsOption2 { get; set; }
+        public string AnsOption3 { get; set; }
+        public string AnsOption4 { get; set; }
+        public string CorrectAns { get; set; }
+    
+        public virtual QuestionCategory QuestionCategory { get; set; }
     }
 }

@@ -24,11 +24,19 @@ namespace ServiceLayerTest.Test
         {
             Entities db = new Entities();
             tblQuestions ques1 = new tblQuestions();
+
+            //gets the Sections ID from QuestionCategory Dataset
             Category cat = new Category();
-            //int SectionID=cat.getSectionID(ques.Section);
-            ques1.SectionID = ques.SectionID;
+            int SectionID=cat.getSectionID(ques.Section);
+
+            ques1.SectionID =Convert.ToInt16(SectionID);
             ques1.QuesDescription = ques.QuesDescription;
-            
+            ques1.AnsOption1 = ques.AnsOption1;
+            ques1.AnsOption2 = ques.AnsOption2;
+            ques1.AnsOption3 = ques.AnsOption3;
+            ques1.AnsOption4 = ques.AnsOption4;
+            ques1.CorrectAns = ques.CorrectAns;
+
             db.tblQuestions.Add(ques1);
             db.SaveChanges();
             int newQuesID = ques1.QuestionID;
@@ -36,7 +44,7 @@ namespace ServiceLayerTest.Test
             //insert into QuesAns Table
 
 
-            return "Congrats! Data Added.."+newQuesID;
+            return "Congrats! Data Added.."+newQuesID+"th record added!";
         }
 
     }

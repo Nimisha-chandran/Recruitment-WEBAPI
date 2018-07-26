@@ -12,11 +12,32 @@
       <PropertyRef Name="QuestionID" />
     </Key>
     <Property Name="QuestionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Section" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SectionID" Type="int" Nullable="false" />
     <Property Name="QuesDescription" Type="varchar(max)" Nullable="false" />
+    <Property Name="AnsOption1" Type="varchar(max)" />
+    <Property Name="AnsOption2" Type="varchar(max)" />
+    <Property Name="AnsOption3" Type="varchar(max)" />
+    <Property Name="AnsOption4" Type="varchar(max)" />
+    <Property Name="CorrectAns" Type="varchar(max)" />
   </EntityType>
+  <Association Name="FK__tblQuesti__Secti__46E78A0C">
+    <End Role="QuestionCategory" Type="Self.QuestionCategory" Multiplicity="1" />
+    <End Role="tblQuestions" Type="Self.tblQuestions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QuestionCategory">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="tblQuestions">
+        <PropertyRef Name="SectionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="SampleModelStoreContainer">
     <EntitySet Name="QuestionCategory" EntityType="Self.QuestionCategory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblQuestions" EntityType="Self.tblQuestions" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__tblQuesti__Secti__46E78A0C" Association="Self.FK__tblQuesti__Secti__46E78A0C">
+      <End Role="QuestionCategory" EntitySet="QuestionCategory" />
+      <End Role="tblQuestions" EntitySet="tblQuestions" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

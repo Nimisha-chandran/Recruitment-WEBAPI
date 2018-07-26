@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SampleModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="QuestionCategory">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryDescription" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblQuestions">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="QuestionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SectionID" Type="int" Nullable="false" />
+          <Property Name="QuesDescription" Type="varchar(max)" Nullable="false" />
+          <Property Name="AnsOption1" Type="varchar(max)" />
+          <Property Name="AnsOption2" Type="varchar(max)" />
+          <Property Name="AnsOption3" Type="varchar(max)" />
+          <Property Name="AnsOption4" Type="varchar(max)" />
+          <Property Name="CorrectAns" Type="varchar(max)" />
+        </EntityType>
+        <Association Name="FK__tblQuesti__Secti__46E78A0C">
+          <End Role="QuestionCategory" Type="Self.QuestionCategory" Multiplicity="1" />
+          <End Role="tblQuestions" Type="Self.tblQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuestionCategory">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="tblQuestions">
+              <PropertyRef Name="SectionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SampleModelStoreContainer">
+          <EntitySet Name="QuestionCategory" EntityType="Self.QuestionCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblQuestions" EntityType="Self.tblQuestions" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__tblQuesti__Secti__46E78A0C" Association="Self.FK__tblQuesti__Secti__46E78A0C">
+            <End Role="QuestionCategory" EntitySet="QuestionCategory" />
+            <End Role="tblQuestions" EntitySet="tblQuestions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SampleModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="QuestionCategory">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tblQuestions" Relationship="Self.FK__tblQuesti__Secti__46E78A0C" FromRole="QuestionCategory" ToRole="tblQuestions" />
+        </EntityType>
+        <EntityType Name="tblQuestions">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="QuestionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SectionID" Type="Int32" Nullable="false" />
+          <Property Name="QuesDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AnsOption1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AnsOption2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AnsOption3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AnsOption4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CorrectAns" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="QuestionCategory" Relationship="Self.FK__tblQuesti__Secti__46E78A0C" FromRole="tblQuestions" ToRole="QuestionCategory" />
+        </EntityType>
+        <Association Name="FK__tblQuesti__Secti__46E78A0C">
+          <End Role="QuestionCategory" Type="Self.QuestionCategory" Multiplicity="1" />
+          <End Role="tblQuestions" Type="Self.tblQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuestionCategory">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="tblQuestions">
+              <PropertyRef Name="SectionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="QuestionCategory" EntityType="Self.QuestionCategory" />
+          <EntitySet Name="tblQuestions" EntityType="Self.tblQuestions" />
+          <AssociationSet Name="FK__tblQuesti__Secti__46E78A0C" Association="Self.FK__tblQuesti__Secti__46E78A0C">
+            <End Role="QuestionCategory" EntitySet="QuestionCategory" />
+            <End Role="tblQuestions" EntitySet="tblQuestions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SampleModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="QuestionCategory">
+            <EntityTypeMapping TypeName="SampleModel.QuestionCategory">
+              <MappingFragment StoreEntitySet="QuestionCategory">
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="CategoryDescription" ColumnName="CategoryDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblQuestions">
+            <EntityTypeMapping TypeName="SampleModel.tblQuestions">
+              <MappingFragment StoreEntitySet="tblQuestions">
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="SectionID" ColumnName="SectionID" />
+                <ScalarProperty Name="QuesDescription" ColumnName="QuesDescription" />
+                <ScalarProperty Name="AnsOption1" ColumnName="AnsOption1" />
+                <ScalarProperty Name="AnsOption2" ColumnName="AnsOption2" />
+                <ScalarProperty Name="AnsOption3" ColumnName="AnsOption3" />
+                <ScalarProperty Name="AnsOption4" ColumnName="AnsOption4" />
+                <ScalarProperty Name="CorrectAns" ColumnName="CorrectAns" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -25,7 +25,7 @@ namespace DataLayerTest
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<tblQuestions> tblQuestions { get; set; }
         public virtual DbSet<QuestionCategory> QuestionCategory { get; set; }
+        public virtual DbSet<tblQuestions> tblQuestions { get; set; }
     }
 }

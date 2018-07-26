@@ -4,8 +4,13 @@
     <EntitySetMapping Name="tblQuestions">
       <EntityTypeMapping TypeName="SampleModel.tblQuestions">
         <MappingFragment StoreEntitySet="tblQuestions">
+          <ScalarProperty Name="SectionID" ColumnName="SectionID" />
+          <ScalarProperty Name="CorrectAns" ColumnName="CorrectAns" />
+          <ScalarProperty Name="AnsOption4" ColumnName="AnsOption4" />
+          <ScalarProperty Name="AnsOption3" ColumnName="AnsOption3" />
+          <ScalarProperty Name="AnsOption2" ColumnName="AnsOption2" />
+          <ScalarProperty Name="AnsOption1" ColumnName="AnsOption1" />
           <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
-          <ScalarProperty Name="Section" ColumnName="Section" />
           <ScalarProperty Name="QuesDescription" ColumnName="QuesDescription" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -18,5 +23,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <AssociationSetMapping Name="FK__tblQuesti__Secti__46E78A0C" TypeName="SampleModel.FK__tblQuesti__Secti__46E78A0C" StoreEntitySet="tblQuestions">
+      <EndProperty Name="tblQuestions">
+        <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+      </EndProperty>
+      <EndProperty Name="QuestionCategory">
+        <ScalarProperty Name="CategoryId" ColumnName="SectionID" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>
