@@ -11,11 +11,11 @@ namespace WebAPITest.Controllers
     public class DocFileController : ApiController
     {
         
-        public string Post()
+        public HttpResponseMessage Post()
 
         {
             HttpResponseMessage result = null;
-            var str ="";
+            
 
             var httpRequest = HttpContext.Current.Request;
 
@@ -41,8 +41,7 @@ namespace WebAPITest.Controllers
 
                 }
 
-                result = Request.CreateResponse(HttpStatusCode.Created, docfiles);
-                str = result.Content.ReadAsStringAsync().Result;
+                result = Request.CreateResponse(HttpStatusCode.Created, docfiles).Content.ReadAsHttpResponseMessageAsync().Result;
 
             }
 
@@ -51,10 +50,11 @@ namespace WebAPITest.Controllers
             {
 
                 result = Request.CreateResponse(HttpStatusCode.BadRequest);
+               
 
             }
 
-            return str;
+            return result;
 
         }
     }
