@@ -92,3 +92,6 @@ C:\Users\nimisha.chandran\Documents\My Project\WebAPITest\WebAPITest\bin\System.
 C:\Users\nimisha.chandran\Documents\My Project\WebAPITest\WebAPITest\obj\Debug\WebAPITest.csprojResolveAssemblyReference.cache
 C:\Users\nimisha.chandran\Documents\My Project\WebAPITest\WebAPITest\obj\Debug\WebAPITest.dll
 C:\Users\nimisha.chandran\Documents\My Project\WebAPITest\WebAPITest\obj\Debug\WebAPITest.pdb
+C:\Users\nimisha.chandran\Documents\My Project\WebAPITest\WebAPITest\bin\System.Web.Cors.dll
+C:\Users\nimisha.chandran\Documents\My Project\WebAPITest\WebAPITest\bin\System.Web.Http.Cors.dll
+C:\Users\nimisha.chandran\Documents\My Project\WebAPITest\WebAPITest\bin\System.Web.Http.Cors.xml

@@ -22,5 +22,6 @@ namespace DataLayerTest
         public string AnsOption3 { get; set; }
         public string AnsOption4 { get; set; }
         public string CorrectAns { get; set; }
+        public string DifficultyLevel { get; set; }
     }
 }

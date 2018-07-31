@@ -24,13 +24,18 @@ namespace ServiceLayerTest.Test
         {
             Entities db = new Entities();
             tblQuestions ques1 = new tblQuestions();
-
-            //gets the Sections ID from QuestionCategory Dataset
-            Category cat = new Category();
-            int SectionID=cat.getSectionID(ques.Section);
-
-            ques1.SectionID =Convert.ToInt16(SectionID);
+            //if (ques.QuesDescription.GetType().FullName != typeof(String).Name)
+            //{
+            //    ques1.QuesDescription = ques.ImageToBase64(ques.QuesDescription);
+            //    convert
+            //}
+            //else
+            //{
+            //    ques1.QuesDescription = ques.QuesDescription;
+            //}
+            ques1.SectionID = ques.SectionID;
             ques1.QuesDescription = ques.QuesDescription;
+            ques1.DifficultyLevel = ques.DifficultyLevel;
             ques1.AnsOption1 = ques.AnsOption1;
             ques1.AnsOption2 = ques.AnsOption2;
             ques1.AnsOption3 = ques.AnsOption3;
