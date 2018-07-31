@@ -41,7 +41,7 @@ namespace WebAPITest.Controllers
 
                 }
 
-                result = Request.CreateResponse(HttpStatusCode.Created, docfiles).Content.ReadAsHttpResponseMessageAsync().Result;
+                result = Request.CreateResponse(HttpStatusCode.Created, docfiles);
 
             }
 
