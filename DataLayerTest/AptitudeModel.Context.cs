@@ -27,5 +27,7 @@ namespace DataLayerTest
     
         public virtual DbSet<QuestionCategory> QuestionCategory { get; set; }
         public virtual DbSet<tblQuestions> tblQuestions { get; set; }
+        public virtual DbSet<tblCandidate> tblCandidate { get; set; }
+        public virtual DbSet<tblEmployee> tblEmployee { get; set; }
     }
 }

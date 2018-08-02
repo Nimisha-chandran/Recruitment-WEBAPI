@@ -161,6 +161,12 @@
     <Compile Include="QuestionCategory.cs">
       <DependentUpon>AptitudeModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="tblCandidate.cs">
+      <DependentUpon>AptitudeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblEmployee.cs">
+      <DependentUpon>AptitudeModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="tblQuestions.cs">
       <DependentUpon>AptitudeModel.tt</DependentUpon>
     </Compile>

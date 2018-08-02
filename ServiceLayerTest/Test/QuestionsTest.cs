@@ -24,15 +24,6 @@ namespace ServiceLayerTest.Test
         {
             Entities db = new Entities();
             tblQuestions ques1 = new tblQuestions();
-            //if (ques.QuesDescription.GetType().FullName != typeof(String).Name)
-            //{
-            //    ques1.QuesDescription = ques.ImageToBase64(ques.QuesDescription);
-            //    convert
-            //}
-            //else
-            //{
-            //    ques1.QuesDescription = ques.QuesDescription;
-            //}
             ques1.SectionID = ques.SectionID;
             ques1.QuesDescription = ques.QuesDescription;
             ques1.DifficultyLevel = ques.DifficultyLevel;

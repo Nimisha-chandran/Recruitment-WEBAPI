@@ -12,6 +12,30 @@
           <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CategoryDescription" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="tblCandidate">
+          <Key>
+            <PropertyRef Name="CandidateID" />
+          </Key>
+          <Property Name="CandidateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="EmailID" Type="varchar" MaxLength="50" />
+          <Property Name="Experience" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="Designation" Type="varchar" MaxLength="50" />
+          <Property Name="LastTestGivenDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblEmployee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmpName" Type="varchar" MaxLength="50" />
+          <Property Name="DOJ" Type="date" />
+          <Property Name="Experience" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="Designation" Type="varchar" MaxLength="50" />
+          <Property Name="LastTestGivenDate" Type="datetime" />
+        </EntityType>
         <EntityType Name="tblQuestions">
           <Key>
             <PropertyRef Name="QuestionID" />
@@ -40,6 +64,8 @@
         </Association>
         <EntityContainer Name="SampleModelStoreContainer">
           <EntitySet Name="QuestionCategory" EntityType="Self.QuestionCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCandidate" EntityType="Self.tblCandidate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblEmployee" EntityType="Self.tblEmployee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblQuestions" EntityType="Self.tblQuestions" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__tblQuesti__Secti__46E78A0C" Association="Self.FK__tblQuesti__Secti__46E78A0C">
             <End Role="QuestionCategory" EntitySet="QuestionCategory" />
@@ -90,7 +116,33 @@
             <End Role="QuestionCategory" EntitySet="QuestionCategory" />
             <End Role="tblQuestions" EntitySet="tblQuestions" />
           </AssociationSet>
+          <EntitySet Name="tblCandidate" EntityType="SampleModel.tblCandidate" />
+          <EntitySet Name="tblEmployee" EntityType="SampleModel.tblEmployee" />
         </EntityContainer>
+        <EntityType Name="tblCandidate">
+          <Key>
+            <PropertyRef Name="CandidateID" />
+          </Key>
+          <Property Name="CandidateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="EmailID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Experience" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastTestGivenDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblEmployee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmpName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DOJ" Type="DateTime" Precision="0" />
+          <Property Name="Experience" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastTestGivenDate" Type="DateTime" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -117,6 +169,32 @@
                 <ScalarProperty Name="AnsOption3" ColumnName="AnsOption3" />
                 <ScalarProperty Name="AnsOption4" ColumnName="AnsOption4" />
                 <ScalarProperty Name="CorrectAns" ColumnName="CorrectAns" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCandidate">
+            <EntityTypeMapping TypeName="SampleModel.tblCandidate">
+              <MappingFragment StoreEntitySet="tblCandidate">
+                <ScalarProperty Name="LastTestGivenDate" ColumnName="LastTestGivenDate" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Experience" ColumnName="Experience" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="CandidateID" ColumnName="CandidateID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblEmployee">
+            <EntityTypeMapping TypeName="SampleModel.tblEmployee">
+              <MappingFragment StoreEntitySet="tblEmployee">
+                <ScalarProperty Name="LastTestGivenDate" ColumnName="LastTestGivenDate" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Experience" ColumnName="Experience" />
+                <ScalarProperty Name="DOJ" ColumnName="DOJ" />
+                <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
