@@ -10,6 +10,8 @@
         <AssociationConnector Association="SampleModel.FK__tblQuesti__Secti__46E78A0C" ManuallyRouted="false" />
         <EntityTypeShape EntityType="SampleModel.tblCandidate" Width="1.5" PointX="5.5" PointY="1.125" />
         <EntityTypeShape EntityType="SampleModel.tblEmployee" Width="1.5" PointX="7.25" PointY="1.25" />
+        <EntityTypeShape EntityType="SampleModel.Test" Width="1.5" PointX="3" PointY="5.25" />
+        <AssociationConnector Association="SampleModel.FK__Test__QuesCatego__59FA5E80" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

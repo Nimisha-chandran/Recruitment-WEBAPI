@@ -50,6 +50,16 @@
           <Property Name="CorrectAns" Type="varchar(max)" />
           <Property Name="DifficultyLevel" Type="varchar" MaxLength="20" />
         </EntityType>
+        <EntityType Name="Test">
+          <Key>
+            <PropertyRef Name="TestID" />
+            <PropertyRef Name="QuesCategoryID" />
+          </Key>
+          <Property Name="TestID" Type="int" Nullable="false" />
+          <Property Name="QuesCategoryID" Type="int" Nullable="false" />
+          <Property Name="Emp_Cand_ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Score" Type="int" />
+        </EntityType>
         <Association Name="FK__tblQuesti__Secti__46E78A0C">
           <End Role="QuestionCategory" Type="Self.QuestionCategory" Multiplicity="1" />
           <End Role="tblQuestions" Type="Self.tblQuestions" Multiplicity="*" />
@@ -62,14 +72,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Test__QuesCatego__59FA5E80">
+          <End Role="QuestionCategory" Type="Self.QuestionCategory" Multiplicity="1" />
+          <End Role="Test" Type="Self.Test" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuestionCategory">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="Test">
+              <PropertyRef Name="QuesCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="SampleModelStoreContainer">
           <EntitySet Name="QuestionCategory" EntityType="Self.QuestionCategory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblCandidate" EntityType="Self.tblCandidate" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblEmployee" EntityType="Self.tblEmployee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblQuestions" EntityType="Self.tblQuestions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Test" EntityType="Self.Test" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__tblQuesti__Secti__46E78A0C" Association="Self.FK__tblQuesti__Secti__46E78A0C">
             <End Role="QuestionCategory" EntitySet="QuestionCategory" />
             <End Role="tblQuestions" EntitySet="tblQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Test__QuesCatego__59FA5E80" Association="Self.FK__Test__QuesCatego__59FA5E80">
+            <End Role="QuestionCategory" EntitySet="QuestionCategory" />
+            <End Role="Test" EntitySet="Test" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -82,6 +109,7 @@
           </Key>
           <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CategoryDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Test" Relationship="SampleModel.FK__Test__QuesCatego__59FA5E80" FromRole="QuestionCategory" ToRole="Test" />
         </EntityType>
         <EntityType Name="tblQuestions">
           <Key>
@@ -118,6 +146,11 @@
           </AssociationSet>
           <EntitySet Name="tblCandidate" EntityType="SampleModel.tblCandidate" />
           <EntitySet Name="tblEmployee" EntityType="SampleModel.tblEmployee" />
+          <EntitySet Name="Test" EntityType="SampleModel.Test" />
+          <AssociationSet Name="FK__Test__QuesCatego__59FA5E80" Association="SampleModel.FK__Test__QuesCatego__59FA5E80">
+            <End Role="QuestionCategory" EntitySet="QuestionCategory" />
+            <End Role="Test" EntitySet="Test" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="tblCandidate">
           <Key>
@@ -143,6 +176,28 @@
           <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="LastTestGivenDate" Type="DateTime" Precision="3" />
         </EntityType>
+        <EntityType Name="Test">
+          <Key>
+            <PropertyRef Name="TestID" />
+            <PropertyRef Name="QuesCategoryID" />
+          </Key>
+          <Property Name="TestID" Type="Int32" Nullable="false" />
+          <Property Name="QuesCategoryID" Type="Int32" Nullable="false" />
+          <Property Name="Emp_Cand_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Score" Type="Int32" />
+        </EntityType>
+        <Association Name="FK__Test__QuesCatego__59FA5E80">
+          <End Type="SampleModel.QuestionCategory" Role="QuestionCategory" Multiplicity="1" />
+          <End Type="SampleModel.Test" Role="Test" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuestionCategory">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="Test">
+              <PropertyRef Name="QuesCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -195,6 +250,16 @@
                 <ScalarProperty Name="DOJ" ColumnName="DOJ" />
                 <ScalarProperty Name="EmpName" ColumnName="EmpName" />
                 <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Test">
+            <EntityTypeMapping TypeName="SampleModel.Test">
+              <MappingFragment StoreEntitySet="Test">
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Emp_Cand_ID" ColumnName="Emp_Cand_ID" />
+                <ScalarProperty Name="QuesCategoryID" ColumnName="QuesCategoryID" />
+                <ScalarProperty Name="TestID" ColumnName="TestID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

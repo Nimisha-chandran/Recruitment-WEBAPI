@@ -13,6 +13,7 @@ namespace WebAPITest.Controllers
     {
 
         Employee employee = new Employee();
+        [HttpPost]
         public string InsertEmployee(tblEmployee emp)
         {
             return employee.insertEmployee(emp);
