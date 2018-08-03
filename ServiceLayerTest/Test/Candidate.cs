@@ -46,6 +46,18 @@ namespace ServiceLayerTest.Test
             return "Congrats! Data Added Candidate with ID.." + TestID1;
         }
 
-      
+        //public string UpdateScore(DataLayerTest.Test test)
+        //{
+        //    DataLayerTest.Test test1 = new DataLayerTest.Test();
+        //    test1.TestID = test.TestID;
+        //    test1.Emp_Cand_ID = test.Emp_Cand_ID;
+        //    test1.QuesCategoryID = test.QuesCategoryID;
+        //    test1.Score = test.Score;
+
+        //    db.Test
+        //}
+
+
+
     }
 }
