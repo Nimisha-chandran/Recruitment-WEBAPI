@@ -12,6 +12,8 @@
         <EntityTypeShape EntityType="SampleModel.tblEmployee" Width="1.5" PointX="7.25" PointY="1.25" />
         <EntityTypeShape EntityType="SampleModel.Test" Width="1.5" PointX="3" PointY="5.25" />
         <AssociationConnector Association="SampleModel.FK__Test__QuesCatego__59FA5E80" />
+        <EntityTypeShape EntityType="SampleModel.tblPersonalityQues" Width="1.5" PointX="3" PointY="8.25" />
+        <AssociationConnector Association="SampleModel.FK__tblPerson__PCate__534D60F1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

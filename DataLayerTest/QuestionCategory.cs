@@ -18,6 +18,7 @@ namespace DataLayerTest
         public QuestionCategory()
         {
             this.Test = new HashSet<Test>();
+            this.tblPersonalityQues = new HashSet<tblPersonalityQues>();
         }
     
         public int CategoryId { get; set; }
@@ -25,5 +26,7 @@ namespace DataLayerTest
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Test> Test { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblPersonalityQues> tblPersonalityQues { get; set; }
     }
 }

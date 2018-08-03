@@ -9,14 +9,14 @@ using ServiceLayerTest.Test;
 
 namespace WebAPITest.Controllers
 {
-    public class ExistingEmployeeController : ApiController
+    public class PersonalityQuesController : ApiController
     {
+        private PersonalityQues PQuestest = new PersonalityQues();
 
-        Employee employee = new Employee();
-        [HttpPost]
-        public int InsertEmployee(tblEmployee emp)
+        public IEnumerable<tblPersonalityQues> Get()
         {
-            return employee.insertEmployee(emp);
+            return PQuestest.GetPersonalityQuestions();
         }
+
     }
 }

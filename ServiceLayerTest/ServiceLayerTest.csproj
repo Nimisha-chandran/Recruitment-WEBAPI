@@ -124,6 +124,7 @@
     <Compile Include="Test\Category.cs" />
     <Compile Include="Test\Employee.cs" />
     <Compile Include="Test\IQuestionsTest.cs" />
+    <Compile Include="Test\PersonalityQues.cs" />
     <Compile Include="Test\QuestionsTest.cs" />
   </ItemGroup>
   <ItemGroup>

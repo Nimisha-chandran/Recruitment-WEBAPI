@@ -18,9 +18,10 @@ namespace WebAPITest.Controllers
         Candidate candidate = new Candidate();
 
         [HttpPost]
-        public string InsertCandidate(tblCandidate cand)
+        public int InsertCandidate(tblCandidate cand)
         {
             return candidate.insertCandidates(cand);
+           
         }
 
         [ResponseType(typeof(void))]

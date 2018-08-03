@@ -247,6 +247,7 @@
     <Compile Include="Controllers\CandidateController.cs" />
     <Compile Include="Controllers\DocFileController.cs" />
     <Compile Include="Controllers\ExistingEmployeeController.cs" />
+    <Compile Include="Controllers\PersonalityQuesController.cs" />
     <Compile Include="Controllers\QuesCategoryController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

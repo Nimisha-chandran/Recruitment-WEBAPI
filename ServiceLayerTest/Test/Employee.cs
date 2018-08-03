@@ -10,7 +10,7 @@ namespace ServiceLayerTest.Test
     {
         Entities db = new Entities();
 
-        public string insertEmployee(tblEmployee emp)
+        public int insertEmployee(tblEmployee emp)
         {
             DataLayerTest.Test test = new DataLayerTest.Test();
             tblEmployee emp1 = new tblEmployee();
@@ -20,7 +20,7 @@ namespace ServiceLayerTest.Test
                            select employee).Any();
             if (exists)
             {
-                return "Employee " + emp1.EmployeeID + " has already given the Test";
+                return  0 ;
             }
 
             else
@@ -43,7 +43,7 @@ namespace ServiceLayerTest.Test
                 db.Test.Add(test);
                 db.SaveChanges();
 
-                return "Employee " + emp1.EmployeeID +  "is Added Successfully";
+                return test.TestID;
             }
             
         }

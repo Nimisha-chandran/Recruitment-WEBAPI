@@ -9,8 +9,11 @@ namespace ServiceLayerTest.Test
     public class Candidate
     {
         private Entities db = new Entities();
-
-        public string insertCandidates(tblCandidate cand)
+        public List<DataLayerTest.Test> Displaytest()
+        {
+            return db.Test.ToList();
+        }
+        public int insertCandidates(tblCandidate cand)
         {
             tblCandidate cand1 = new tblCandidate();
             DataLayerTest.Test test = new DataLayerTest.Test();
@@ -43,7 +46,7 @@ namespace ServiceLayerTest.Test
             int TestID1 = test.TestID;
             
             //insert into tblCandidate Table
-            return "Congrats! Data Added Candidate with ID.." + TestID1;
+            return  TestID1;
         }
 
         //public string UpdateScore(DataLayerTest.Test test)
