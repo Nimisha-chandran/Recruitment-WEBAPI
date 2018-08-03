@@ -33,7 +33,7 @@ namespace WebAPITest.Controllers
 
             //using (var ctx = new Test())
             //{
-                var existingScore = db.Test.Where(s => s.TestID == test.TestID && s.QuesCategoryID==test.QuesCategoryID&&s.Emp_Cand_ID==test.Emp_Cand_ID).FirstOrDefault<Test>() ;
+                var existingScore = db.Test.Where(s => s.TestID == test.TestID && s.QuesCategoryID==test.QuesCategoryID).FirstOrDefault<Test>() ;
 
                 if (existingScore.Score == null)
                 {
